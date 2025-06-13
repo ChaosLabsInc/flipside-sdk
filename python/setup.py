@@ -14,7 +14,7 @@ with open("requirements.txt", "r") as fh:
 
 setup(
     install_requires=[req for req in requirements if req[:2] != "# "],
-    name="shroomdk-chaos",
+    name="flipside",
     version=version,
     author="dev@flipsidecrypto.com",
     author_email="dev@flipsidecrypto.com",
