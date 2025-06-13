@@ -3,19 +3,19 @@
 all: clean local_env build_wheel push_wheel
 
 clean: clean-build clean-pyc clean-test clean-dirs
-deploy: test deploy_shroomdk
-local: test local_shroomdk
+deploy: test deploy_flipside
+local: test local_flipside
 
-deploy_shroomdk: 
+deploy_flipside: 
 	make clean
-	make setup-shroomdk
+	make setup-flipside
 	make build
 	make upload
 	make clean
 
-local_shroomdk: 
+local_flipside: 
 	make clean 
-	make setup-shroomdk 
+	make setup-flipside 
 	make local-install 
 	make clean
 
@@ -38,7 +38,7 @@ clean-test:
 	rm -fr htmlcov/
 
 clean-dirs:
-	rm -fr shroomdk/
+	rm -fr flipside/
 	rm -rf package_name.txt
 
 test:
@@ -47,10 +47,9 @@ test:
 build:
 	python3 setup.py sdist bdist_wheel
 
-setup-shroomdk:
-	mkdir shroomdk
-	cp -R ./src/* ./shroomdk
-	echo "shroomdk-chaos" > package_name.txt
+setup-flipside:
+	mkdir flipside
+	cp -R ./src/* ./flipside
 
 local-install:
 	python setup.py install
